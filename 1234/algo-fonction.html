@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>Algo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+
+
+</head>
+
+<body>
+    <div id="output"></div>
+
+    <script>
+        //function = declaré  la fonction
+        // message = argument
+        function afficher (message){
+          var output; 
+        output = document.getElementById("output");        
+       output.innerHTML += message;
+            
+        }
+        // optenir = recupéré
+        function getTTC(montantHT, tauxTVA){
+            // pour calculé le montent ttc
+            var montantTTC = montantHT * (1+tauxTVA);
+            // return = sorti de fonction et revoi une valeur
+            return montantTTC;
+            //se code ne sera jamais executé
+            console.log("test");
+        }
+        // afficher = appelé une fonction
+        afficher(" Hello ");
+        afficher (" hola ");
+        
+        afficher ("le montant ttc est égale à "+
+        getTTC(150,.2));
+        
+        // affectation du resulta de la fonction a une variable
+        var total = getTTC(200, 0.055);
+        afficher(" total = " + total);
+        /*
+        * calcule du montant ttc de l'enssemble des élément d'une facture
+          
+          @param facture tableau de nombres
+        */
+        function GetTotalFactureTTC(facture){
+         var total = 0;
+            for( var i=0; i<=0 ; i++){
+                total += getTTC(facture[i], 0.2);
+            }
+            return total;
+        }
+        var factureHT =[200,145,315,22,37]
+        // code pour afficher la factue ttc
+        afficher ("<br> le totale de la facture est " + GetTotalFactureTTC(factureHT));
+    </script>
+
+</body>
+
+</html>

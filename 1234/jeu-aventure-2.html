@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html>
+	<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+</head>
+
+<body>
+
+    <script>
+        var jeu = {
+            message: "Vous recontrez un troll dans la forêt\n que faites-vous ?",
+            actions: [
+                {
+                    action: "combattre",
+                    question: "êtes-vous fort",
+                    reponses: {
+                        oui: "vous massacrez le troll",
+                        non: "le troll vous massacre"
+                    }
+                },
+                {
+                    action: "fuir"
+                },
+                {
+                    action: "se cacher"
+                },
+                {
+                    action: "lancer un sort"
+                }
+            ]
+        };
+
+        var choixPossibles = "";
+
+        //Liste des choix possibles en fonction des actions
+        //du tableau jeu
+        //Le premier indice du tableau est 0, 
+        //le numéro affiché du premier choix est 1 (0+1)
+        for (var i = 0; i < jeu.actions.length; i++) {
+            choixPossibles += (i + 1) + " : " + jeu.actions[i].action + " | ";
+        }
+
+        var choixAction = prompt(jeu.message + "\n" + choixPossibles);
+        
+        //l'indice de l'action choisie correspond au choix de l'utilisateur -1
+        choixAction = choixAction -1;
+        
+        //Si le choix correspond à une des possibilités
+        if(choixAction in jeu.actions){
+            var question = jeu.actions[choixAction].question;
+            var choix = confirm(question);
+            if(choix){
+                alert(jeu.actions[choixAction].reponses.oui);
+            } else {
+                alert(jeu.actions[choixAction].reponses.non);
+            }
+        }else{
+            alert("Veuillez choisir une des action disponible");
+        }
+        
+    </script>
+
+</body>
+</html>

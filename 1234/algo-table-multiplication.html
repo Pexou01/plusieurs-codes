@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Algo</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0">
+	</head>
+
+	<body>
+        
+        <div id="output"></div>
+        
+         <script>
+            //ici du code javascript uniquement
+            
+            //Déclaration d'une variable output
+            var output;
+            //initialisation de la variable output
+            //Référence à la balise dont l'id est "output"
+            output = document.getElementById("output");
+             
+            //Table de multiplication
+            
+            var n = 10;
+             
+            var html = "<table>";
+            
+             //Boucle pour i allant de 1 à 10
+             //liste des arguments 
+             // - initialisation
+             // - condition pour rester dans la boucle
+             // - code exécuté à chaque itération
+            for(var i=1; i <=n; i++){
+                //équivalent à html = html + "<tr>"
+                html += "<tr>";
+                
+                //Boucle pour afficher les cases (td)
+                //de notre tableau
+                for(k=1; k <= n; k++){
+                    html += "<td>" + (i*k) + "</td>";
+                }
+                
+                html += "</tr>";
+            }
+             
+            html += "</table>";
+             
+            
+            //Ecriture dans la balise output
+            output.innerHTML = html;
+        </script>
+
+	</body>
+</html>

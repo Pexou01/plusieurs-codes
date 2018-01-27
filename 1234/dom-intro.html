@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello Javascript</title>
+    <meta charset="utf-8">
+    <style>
+        #formContainer {
+            background-color: crimson;
+            width: 450px;
+            margin: 35px auto;
+            padding: 12px;
+            border: 3px solid blue;
+            position: relative;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btShowForm">formulaire</button>
+    <div id="formContainer">
+        <form method="post" id="form">
+            <label for="pseudo">Speudo</label>
+            <input type="text" name="pseudo" id="pseudo">
+            </br>
+            <label for="mdp">Mot de passe</label>
+            <input type="text" name="mdp" id="mdp">
+            <br>
+            <label for="confirmMdp">Comfirme Mot de passe</label>
+            <input type="text" name="confirmMdp" id="confirmMdp">
+        <button type="submit">Envoyer</button>    
+
+        </form>
+
+    </div>
+
+    <script>
+        var formContainer = document.getElementById("formContainer");
+        var form = document.getElementById("form");
+        var mdp = document.getElementById("mdp");
+        var confirmdp = document.getElementById("confirMdp");
+        var btShowForm = document.getElementById("btShowForm");
+
+        function showForm() {
+            formContainer.style.display = "block";
+        }
+
+        function hideForm() {
+            formContainer.style.display = "none";
+        }
+
+        btShowForm.onclick = showForm;
+        form.onsubmit = () => {
+            if (mdp.value === confirmMdp.value) {
+                alert("TOUS ET OK");
+                return true;
+            }
+            alert("Recomence");
+            return false;
+        }
+
+        console.log(form);
+    </script>
+
+</body>
+
+</html>

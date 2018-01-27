@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html>
+	<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+</head>
+
+<body>
+   <div id="output"></div>
+    
+    <script>
+        var output;
+        output = document.getElementById("output");
+
+        //initialisation du nombre de voyelles
+        var nb=0;
+        var mot = prompt ("entrez un mot");
+        var car;
+        
+        //boucle pour chaque caractaire de mot
+        for(var i = 0; i< mot.length; i++){
+           
+           //récupération du caractaire a la position i de mot
+            car = mot.charAt(i);
+            if(car == "a" || car =="e" || car =="i" || car =="o" || car =="u" || car =="y"){
+                nb++;
+            
+            }
+            
+        }
+
+        output.innerHTML = "<h1>il y a " + nb + " voyelles </h1>";
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html>
+	<head>
+    <title>Algo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+</head>
+
+<body>
+
+    <div id="output"></div>
+
+    <script>
+        //ici du code javascript uniquement
+
+        //Déclaration d'une variable output
+        var output;
+        //initialisation de la variable output
+        //Référence à la balise dont l'id est "output"
+        output = document.getElementById("output");
+
+
+        /*****************************************
+         * Valeur minimal et maximale plus moyenne
+         ******************************************/
+        var notes = [8, 4, 1, 8, 15, 14, 17, 2, 20, 18];
+        var max = null,
+            posMax = -1;
+        var min, posMin = -1;
+        var cumul = 0;
+        var moyenne;
+
+        for (var i = 0; i < notes.length; i++) {
+
+            if (notes[i] > max) {
+                max = notes[i];
+                posMax = i;
+            }
+
+            if (notes[i] < min || i == 0) {
+                min = notes[i];
+                posMin = i;
+            }
+
+            cumul += notes[i];
+        }
+
+        moyenne = cumul / notes.length;
+
+        /***********************************
+         * Calcul de la variance
+         ************************************/
+
+        var cumulVariance = 0;
+
+        for (i = 0; i < notes.length; i++) {
+            cumulVariance += Math.pow(notes[i] - moyenne, 2);
+        }
+
+        var variance = cumulVariance / notes.length;
+
+        var ecartType = Math.sqrt(variance);
+
+
+
+        /*************************************
+         * Résultat
+         ************************************/
+
+        //Ecriture dans la balise output
+        output.innerHTML = "valeur max = " + max + " position = " + posMax + " valeur min = " + min + " position = " + posMin + " La moyenne est : " + moyenne;
+    </script>
+
+</body>
+</html>

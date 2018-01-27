@@ -1,0 +1,42 @@
+
+<!doctype html>
+
+<html>
+
+<head>
+    <title>Algo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+</head>
+
+<body>
+
+    <div id="output"></div>
+
+    <script>
+        //ici du code javascript uniquement
+
+        //Déclaration d'une variable output
+        var output;
+        //initialisation de la variable output
+        //Référence à la balise dont l'id est "output"
+        output = document.getElementById("output");
+
+        var original = prompt("Entrez le texte à chiffrer");
+        var final = "";
+        var codeCar, car;
+
+        for (var i = 0; i < original.length; i++) {
+            codeCar = original.charCodeAt(i);
+            car = String.fromCharCode(codeCar + 1);
+            final += car;
+        }
+
+        //Ecriture dans la balise output
+        output.innerHTML = final;
+
+    </script>
+
+</body>
+
+</html>

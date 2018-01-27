@@ -1,0 +1,59 @@
+<<!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Document</title>
+        <style>
+            #tip {
+                position: absolute;
+                width: 150px;
+                background-color: yellowgreen;
+                padding: 3px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <button id="tipOn">activé la bulle d'aide.</button>
+        <button id="tipOff">désactivé la bulle d'aide.</button>
+        <button id="bt">Bouton</button>
+        <div id="tip">
+            astuce pour du javascript
+        </div>
+<h1 id="titre">titre</h1>
+   <p id="texte"> mon parf 
+</p>
+        <script>
+            // faire apparetreee une bulle qui suis la souri quand on mes la souri sur le bouton
+            var tip = document.getElementById("tip");
+            var bt = document.getElementById("bt");
+            var texte= document.getElementById("texte");
+            var titre= document.getElementById("titre");
+            function hidetip() {
+                tip.style.display = "none";
+            }
+
+            function showtip() {
+                tip.style.display = "block";
+                tip.style.top = (event.pageY + 10) + "px";
+                tip.style.left = (event.pageX + 10) + "px";
+            }
+
+
+            bt.onmousemove = (event) => {
+                tip.style.top = (event.pageY + 10) + "px";
+                tip.style.left = (event.pageX + 10) + "px";
+                event.preventDefault();
+            }
+            bt.onmousemove = showtip;
+            bt.onmouseout = hidetip;
+           
+            hidetip();
+        </script>
+    </body>
+
+    </html>

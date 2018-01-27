@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>Algo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+</head>
+
+<body>
+
+    <div id="output"></div>
+
+    <script>
+        function afficher(message) {
+            //Déclaration d'une variable output
+            var output;
+            //initialisation de la variable output
+            //Référence à la balise dont l'id est "output"
+            output = document.getElementById("output");
+
+            //Ecriture dans la balise output
+            output.innerHTML += message;
+        }
+        
+        function obtenirTTC(montantHT, tauxTVA){
+            var montantTTC = montantHT * (1 + tauxTVA);
+            return montantTTC;
+        }
+
+        //ici du code javascript uniquement
+        
+        //Appel de la fonction
+        afficher("Hello");
+        
+        afficher(" Hola");
+        
+        afficher("Le montant TTC est égal à " + obtenirTTC(150,.2));
+        
+        //Affectation du résultat de la fonction à une variable
+        var total = obtenirTTC(200, 0.055);
+        afficher(" total = " + total);
+        
+        /*
+            Calcul du montant TTC de l'ensemble 
+            des éléments d'une facture
+            
+            @param facture tableau de nombres
+            
+        */
+        function obtenirTotalFactureTTC(facture, tva, remise){
+            var total = 0;
+            for(var i =0; i < facture.length; i++){
+                total += obtenirTTC(facture[i]*remise, tva[i]);
+            }
+            return total;
+        }
+        
+        var factureHT = [200, 145, 315,  22,  37];
+        var tauxTVA   = [.07, .11, .055, .20, .20];
+        
+        afficher("<br>" + obtenirTotalFactureTTC(factureHT, tauxTVA, 1));
+        
+        afficher("<br>" + obtenirTotalFactureTTC(
+        [100,120,10], [.05,.07,.20], .9
+        ));
+        
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html>
+	<head>
+    <title>Algo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+</head>
+
+<body>
+
+    <div id="output"></div>
+
+    <script>
+        //ici du code javascript uniquement
+
+        //Déclaration d'une variable output
+        var output;
+        //initialisation de la variable output
+        //Référence à la balise dont l'id est "output"
+        output = document.getElementById("output");
+        
+        var fruits = ["Pommes", "Oranges", "Poires", "Kiwi"];
+        var pref = "Oranges";
+        // ajout d'élément a la fin du tableau *****************************
+        fruits.push("banane");
+        var html = "<select>";
+       
+        // suprimer le 4 e élément   ***************************************
+        var fruitstemp = [];
+        var indiceASupprimer = 3;
+        
+        for( var k =0; k < fruits.length; k++){
+            if (k != indiceASupprimer){
+                fruitstemp [fruitstemp.length] = fruits [k];         
+            }
+        }
+        fruits= fruitstemp;
+        //******************************************************************
+        
+        for(var i = 0; i < fruits.length; i++){
+            if(pref == fruits[i]){
+                html += "<option selected>";
+            } else {
+                html += "<option>";
+            }
+            
+            html += fruits[i] + "</option>";
+        }
+        
+        html += "</select>";
+
+        //Ecriture dans la balise output
+        output.innerHTML = html;
+    </script>
+
+</body>
+</html>

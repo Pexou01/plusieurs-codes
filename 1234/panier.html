@@ -1,0 +1,123 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+
+    <script src="library/fonctions.js"></script>
+    
+    <style>
+    
+        td, th{
+            padding: 5px;
+            border: 1px solid black;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        /* Mise en forme des balises tr paires */
+        tr:nth-of-type(even){
+            background-color: beige;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="output"></div>
+
+    <script>
+        var panier = [
+            {
+                designation: "Arbois chardonay",
+                pu: 12,
+                qt: 3
+            },
+            {
+                designation: "Arbois savagnin",
+                pu: 16,
+                qt: 4
+            },
+            {
+                designation: "Arbois vin jaune",
+                pu: 30,
+                qt: 2
+            },
+            {
+                designation: "Arbois macvin",
+                pu: 18,
+                qt: 1
+            },
+        ];
+        
+        function obtenirLignePanier(ligne){
+            var html = "<tr>";
+            html += "<td>" + ligne.designation + "</td>";
+            html += "<td>" + ligne.pu + "</td>";
+            html += "<td>" + ligne.qt + "</td>";
+            html += "<td>" + ligne.qt * ligne.pu + "</td>";
+            html += "</tr>";
+            
+            return html;
+            
+        }
+        
+        function obtenirLigneTotal(libelle, montant){
+            var html = "<tr>";
+            html += "<td colspan=3>" + libelle + "</td>";
+            html += "<td>" + montant + "</td>";
+            html += "</tr>";
+            
+            return html;
+        }
+        
+        function obtenirLigneEntete(){
+            var html = "<tr>";
+            html += "<th>Désignation</th>";
+            html += "<th>PU</th>";
+            html += "<th>QT</th>";
+            html += "<th>Total</th>";
+            html += "</tr>";
+            
+            return html;
+            
+        }
+        
+        
+        function obtenirTableauPanier(panier){
+            var total = 0;
+            
+            var html = "<table>";
+            
+            html += obtenirLigneEntete();
+            
+            //Boucle sur les lignes du panier
+            for(var i = 0; i <panier.length; i++ ){
+                //Calcul du total
+                total += panier[i].qt * panier[i].pu;
+                //Affichage d'une ligne
+                html += obtenirLignePanier(panier[i]);
+            }
+            
+            html += obtenirLigneTotal("Total HT", total);
+            html += obtenirLigneTotal("TVA", total *.2);
+            html += obtenirLigneTotal("TTC", total *1.2);
+            
+            html += "</table>";
+            
+            return html;
+        }
+        
+        afficher(obtenirTableauPanier(panier));
+
+    </script>
+
+</body>
+
+</html>

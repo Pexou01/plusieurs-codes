@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>Algo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+</head>
+
+<body>
+
+    <div id="output"></div>
+
+    <script>
+        //ici du code javascript uniquement
+
+        //Déclaration d'une variable output
+        var output;
+        //initialisation de la variable output
+        //Référence à la balise dont l'id est "output"
+        output = document.getElementById("output");
+        
+        //Déclaration des variables
+        var score = 0;
+        var codeCar; //code du caractère
+        var estMajuscule, estMinuscule, estChiffre;
+        var majusculeTrouvee = false;
+        var chiffreTrouve = false;
+        var specialTrouve = false;
+        var termine = false;
+        
+        var mdp = prompt("Saisir un mot de passe");
+        
+        //Evaluation du score 
+        //en fonction de la taille du mot de passe
+        if(mdp.length >=5 && mdp.length <= 8){
+            score = 1;
+        } else if(mdp.length >8){
+            score = 2;
+        }
+        
+        //Examen de chacun des caractères du mot de passe
+        for(var pos = 0; pos < mdp.length && ! termine; pos++){
+            //Récupération du code du caractère
+            codeCar = mdp.charCodeAt(pos);
+            //Initialisation des variables représentant l'état du caractère
+            estChiffre = false;
+            estMajuscule = false;
+            estMinuscule = false;
+            
+            //test de l'état du caractère
+            if(codeCar >= 65 && codeCar <= 90){
+                estMajuscule = true;
+            } else if (codeCar >= 97 && codeCar <= 122){
+                estMinuscule = true;
+            } else if (codeCar >= 49 && codeCar <= 57){
+                estChiffre = true;
+            }
+            
+            //Attribution du score
+            if(estMajuscule && ! majusculeTrouvee){
+                score++;
+                majusculeTrouvee = true;
+            } else if(estChiffre && ! chiffreTrouve){
+                score++;
+                chiffreTrouve = true;
+            } else if(! estChiffre && !estMajuscule && ! estMinuscule && ! specialTrouve){
+                score++;
+                specialTrouve = true;
+            }
+            
+            //Doit-on continuer ?
+            //on arrête si on a déjà trouvé tous les types de caractères
+            termine = majusculeTrouvee && chiffreTrouve && specialTrouve;
+        }
+
+        //Ecriture dans la balise output
+        output.innerHTML = "Le score du mot de passe est :" + score ;
+
+    </script>
+
+</body>
+
+</html>

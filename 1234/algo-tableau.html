@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html>
+	<head>
+    <title>Algo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+</head>
+
+<body>
+
+    <div id="output"></div>
+
+    <script>
+        //ici du code javascript uniquement
+
+        //Déclaration d'une variable output
+        var output;
+        //initialisation de la variable output
+        //Référence à la balise dont l'id est "output"
+        output = document.getElementById("output");
+
+        var notes = [20,0,0,20];
+        var total =0, moyenne;
+        
+        for(var i=0; i < notes.length; i++){
+            total = total + notes[i];
+        }
+        
+        moyenne = total / notes.length;
+        
+        //Ecriture dans la balise output
+        output.innerHTML = moyenne;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html>
+	<head>
+    <title>Algo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+
+        .caseNoire {
+            background-color: black;
+        }
+
+        .caseBlanche {
+            background-color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="output"></div>
+
+    <script>
+        //ici du code javascript uniquement
+
+        //Déclaration d'une variable output
+        var output;
+        //initialisation de la variable output
+        //Référence à la balise dont l'id est "output"
+        output = document.getElementById("output");
+
+        //Table de multiplication
+
+        var n = 8;
+
+        var html = "<table>";
+        var lignePaire, colonnePaire;
+
+        //Boucle pour i allant de 1 à 10
+        //liste des arguments 
+        // - initialisation
+        // - condition pour rester dans la boucle
+        // - code exécuté à chaque itération
+        for (var i = 1; i <= n; i++) {
+            //équivalent à html = html + "<tr>"
+            html += "<tr>";
+            lignePaire = i % 2 == 0;
+
+            //Boucle pour afficher les cases (td)
+            //de notre tableau
+            for (k = 1; k <= n; k++) {
+                colonnePaire = k % 2 == 0;
+                if (lignePaire == colonnePaire) {
+                    html += '<td class="caseNoire"></td>';
+                } else {
+                    html += '<td class="caseBlanche"></td>';
+                }// fin de condition pour la couleur des cases
+            }// fin de boucle k
+
+            html += "</tr>";
+        }// fin de boucle i
+
+        html += "</table>";
+
+
+        //Ecriture dans la balise output
+        output.innerHTML = html;
+    </script>
+
+</body>
+</html>

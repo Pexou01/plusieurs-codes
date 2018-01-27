@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <form method="post" id="form">
+            <label for="fruit">Fruit </label>
+            <input type="text" name="fruit" id="fruit">
+            </br>
+            <button type="submit">Envoyer</button>
+        </form>
+        <ul id="choix">
+            <li>Fraise</li>
+            <li>Pomme</li>
+            <li>Kiwi</li>
+        </ul>
+        <script>
+            var liste = document.getElementById("choix");
+            var fruit = document.getElementById("fruit");
+            var form = document.getElementById("form");
+         
+            form.onsubmit = ()=>{
+                var li = document.createElement("li");
+                li.textContent = fruit.value;
+                liste.appendChild(li);
+                fruit.value = "";
+                return false;
+               
+            }
+        </script>
+    </body>
+
+    </html>

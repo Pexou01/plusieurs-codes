@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html>
+	<head>
+    <title>Algo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+
+        .caseNoire {
+            background-color: black;
+        }
+
+        .caseBlanche {
+            background-color: beige;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="output"></div>
+
+    <script>
+        var output;
+        //initialisation de la variable output
+        //Référence à la balise dont l'id est "output"
+        output = document.getElementById("output");
+       
+        var nom;
+        var essai =0;
+        var message;
+        var choix;
+        while(nom == null || nom == undefined || nom == ""){
+           essai++;
+            if(essai <=2){
+                message =  "votre nom";
+            }else if (essai == 3){
+                message = "votre nom j'ai dit";
+            }else {
+                message = "votre nom débile";
+                choix = confirm("savez vous lire ?");
+            if(! choix){
+                nom = "je ne peut rien faire pour vous";
+                break;//break = fin du programe
+            }
+            }
+            nom = prompt(message);
+        }
+        
+        output.innerHTML = "<h1>"+nom+"</h1>";
+    </script>
+
+
+</body>
+</html>

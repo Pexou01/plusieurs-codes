@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>jqUiDD</title>
+
+    <style type="text/css">
+        #photos, #caddie{ border:1px dotted dimgray; width:400px; height:120px; }
+        .auDessus{ background-color:lightgreen; }
+    </style>
+
+    <link href="../lib/jquery/ui/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+    <script src="../lib/jquery/jquery.js"></script>
+
+    <script src="../lib/jquery/ui/jquery-ui.js"></script>
+ 
+    <script>
+        // ------------
+        function init() {
+            var lsMessage = "";
+            $(".dropAutorise").draggable
+            (
+                {
+                    revert: true,
+                    zIndex: 1000,
+                    opacity: 0.7
+                }
+            );
+
+            $("#caddie").droppable
+            (
+                {
+                    accept: ".dropAutorise",
+                    tolerance: "intersect",
+                    hoverClass: "auDessus",
+                    drop: function(evenement, donnees)
+                    {
+                        lsMessage += $(donnees.draggable).attr("alt") + "<br/>";
+                        $("#caddie").html(lsMessage);
+                    }
+                }
+            );
+        } /// init
+
+        $(document).ready(init);
+    </script>
+</head>
+
+<body>
+    <div id="centre">
+        <h3>jqUiDD</h3>
+
+        <div id="photos">
+            <img src="../images/6.jpg" alt="La vie des autres.jpg" class="dropAutorise" height="100"/>
+            <img src="../images/santella_femme_au_restaurant.jpg" alt="La ligne verte" class="dropAutorise" height="100"/>
+            <img src="../images/vera-farmiga-sexy-beautiful.jpg" alt="Le pianiste" height="100"/>
+        </div>
+
+        <br/>
+        <div id="caddie"></div>
+    </div>
+</body>
+</html>
