@@ -22,24 +22,24 @@
         var choix;
         var action;
         var message = "";
-        alert("vous rencontré un monstre dans une ruelle sombre");
+        alert("vous rencontrez un monstre dans une ruelle sombre");
         while (message == "") {
             var action = prompt("Que voulez-vous faire \n(1 - Combatre 2 - Fuir 3 - Transformer 4 - Rigoler)");
             if (action == Action_Combatre) {
-                choix = confirm("étes-vous fort ?");
+                choix = confirm("êtes-vous fort ?");
                 if (choix) {
-                    message = "vous detruiser se foutu monstre .";
+                    message = "vous détruisez ce foutu monstre .";
 
                 } else {
                     message = "Le Monstre vous coupe la tête .";
                 }
             } else if (action == Action_Fuir) {
-                choix = confirm("étes-vous rapide ?");
+                choix = confirm("êtes-vous rapide ?");
                 if (choix) {
                     message = "vous courez trop vite pour le monstre .";
 
                 } else {
-                    message = "Le monstre vous démanbre .";
+                    message = "Le monstre vous démembre .";
                 }
             } else if (action == Action_Transformer) {
                 choix = confirm("étes-vous Magicien ?");
@@ -54,11 +54,12 @@
                 if (choix) {
                     message = " vous rigolez en disant au monstre qu'il c'est trompé de période "
                 } else {
-                    message = " le monstre vous créves les yeux en rigolent <h3>HA</h3><h2> HA</h2><h1> HA</h1> .";
+                    message = " le monstre vous crevez les yeux en rigolant <h3>HA</h3><h2> HA</h2><h1> HA</h1> .";
                 }
 
             }
         }
+
 
         output.innerHTML = "<h2>" + message + "</h2>";
     </script>
